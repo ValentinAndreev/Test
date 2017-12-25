@@ -8,9 +8,9 @@ html
   body
     .container
       - if current_user
-          =< link_to "#{current_user.email}", root_path 
-          =< link_to 'Edit profile', edit_user_registration_path(current_user.id)      
-          =< link_to 'Logout', destroy_user_session_path, method: :delete
+        =< link_to "#{current_user.email}", root_path 
+        =< link_to 'Edit profile', edit_user_registration_path(current_user.id)      
+        =< link_to 'Logout', destroy_user_session_path, method: :delete
       p.notice= notice
       p.alert= alert
       = yield
