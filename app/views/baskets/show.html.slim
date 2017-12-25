@@ -1,0 +1,23 @@
+.text-center
+  h4 #{main_caption}: #{current_user.items_count || 0} items
+  - if current_user.role == 'user'  
+    h4 with total price: #{@price}.
+p
+  = render @basket.items
+  - if current_user.role == 'admin'
+    br/
+    h5 Add item:
+    = form_with model: [ @basket, @basket.items.build ], local: true, :html => {:class => "form-horizontal center"} do |f|
+      .form-group
+        = f.label :title, "Title:"
+        = f.text_field :title, class: "form-control"
+      .form-group
+        = f.label :price, "Price:"
+        = f.text_field :price, class: "form-control"
+      .form-group
+      = f.submit "Submit", class: "btn btn-default btn-primary"
+  - else
+    .text-center
+      h4 All items:
+    p
+      = render @all_items
