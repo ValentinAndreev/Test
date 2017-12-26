@@ -7,7 +7,7 @@ p
   - if current_user.role == 'admin'
     br/
     h5 Add item:
-    = form_with model: [@basket, @basket.items.build], local: true, :html => { :class => "form-horizontal center" } do |f|
+    = form_with url: basket_items_path, local: true, :html => { :class => "form-horizontal center" } do |f|
       .form-group
         = f.label :title, "Title:"
         = f.text_field :title, class: "form-control"

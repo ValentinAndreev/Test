@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   after_create :create_basket
 
-  def self.admins_basket
+  def self.all_items
     find_by(role: 'admin').basket.items.all
   end
 

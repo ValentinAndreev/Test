@@ -9,8 +9,8 @@ feature "Admin's actions" do
   end
 
   scenario 'admin can create and delete  products' do
-    fill_in "item[title]", with: 'New product'
-    fill_in "item[price]", with: 10
+    fill_in "title", with: 'New product'
+    fill_in "price", with: 10
     click_on 'Submit'
     expect(page).to have_content 'On store: 1 items'
     expect(page).to have_content 'New product'

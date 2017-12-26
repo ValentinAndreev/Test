@@ -3,9 +3,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = @basket.items.new(item_params)
-    @item.save
-    error = @item.errors.messages[:message].first
-    flash[:notice] = error if error
+    flash[:notice] = @item.errors.messages[:message].first unless @item.save
     redirect_to @basket
   end
 
@@ -18,10 +16,10 @@ class ItemsController < ApplicationController
   private
 
   def find_basket
-    @basket = current_user.basket
+    @basket ||= current_user.basket
   end
 
   def item_params
-    params[:item] ? params.permit(:item => [:title, :price])["item"] : params.permit(:title, :price)
+    params.permit(:title, :price)
   end
 end
