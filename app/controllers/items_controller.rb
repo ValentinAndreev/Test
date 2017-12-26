@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to @basket
   end
- 
+
   private
 
   def find_basket

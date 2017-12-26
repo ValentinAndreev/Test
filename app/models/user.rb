@@ -15,8 +15,6 @@ class User < ApplicationRecord
     basket.items.count
   end
 
-  private
-
   def self.create_basket
     Basket.create!(user: current_user)
   end

@@ -29,5 +29,5 @@ class BasketsController < ApplicationController
 
   def basket_params
     params.permit(:price, :title)
-  end  
+  end
 end
